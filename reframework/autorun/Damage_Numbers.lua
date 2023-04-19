@@ -44,7 +44,7 @@ local customization_menu = require("Damage_Numbers.customization_menu");
 local keyframe_handler = require("Damage_Numbers.keyframe_handler");
 local damage_handler = require("Damage_Numbers.damage_handler");
 
-if debug.enabled then
+if debug == nil and debug.enabled then
 	xy = "";
 end
 
@@ -143,7 +143,7 @@ end);
 -- #endregion
 ----------------------------D2D------------------------------
 
-if debug.enabled then
+if debug == nil and debug.enabled then
 	if d2d ~= nil then
 		d2d.register(function()
 		end, function()
