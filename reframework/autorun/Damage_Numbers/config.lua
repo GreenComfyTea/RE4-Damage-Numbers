@@ -43,16 +43,17 @@ function this.init()
 		enabled = true,
 
 		font = {
-			family = "Impact",
-			size = 16,
-			bold = false,
+			family = "Bahnschrift",
+			size = 24,
+			bold = true,
 			italic = false
 		},
 
 		settings = {
 			use_d2d_if_available = true,
 
-			display_duration = 1,
+			display_delay = 0.022222,
+			display_duration = 0.988888,
 
 			floating_distance = {
 				min = 50,
@@ -71,12 +72,12 @@ function this.init()
 				},
 				[2] = {
 	
-					timeline_position = 0.2,
+					timeline_position = 0.166666,
 					value = 1,
 				},
 				[3] = {
 	
-					timeline_position = 0.5,
+					timeline_position = 0.666666,
 					value = 1,
 				},
 				[4] = {

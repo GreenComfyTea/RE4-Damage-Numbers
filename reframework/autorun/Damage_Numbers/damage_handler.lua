@@ -38,21 +38,23 @@ local os = os;
 
 this.list = {};
 
-local manager_type_def = sdk.find_type_definition("chainsaw.Cp1021HudScoreDispGuiBehavior.ScoreData");
-local method = manager_type_def:get_method("start");
-
 local enemy_manager = sdk.find_type_definition("chainsaw.EnemyManager");
 local notify_hit_damage_method = enemy_manager:get_method("notifyHitDamage");
 local notify_dead_method = enemy_manager:get_method("notifyDead");
+
+local damage_info_type_def = sdk.find_type_definition("chainsaw.HitController.DamageInfo");
+local get_damage_method = damage_info_type_def:get_method("get_Damage");
+local get_position_method = damage_info_type_def:get_method("get_Position");
 
 function this.new(damage, hit_position)
 	local cached_config = config.current_config;
 
 	local damage_number = {};
 
+	damage_number.display_delay = cached_config.settings.display_delay;
 	damage_number.display_duration = cached_config.settings.display_duration;
 
-	if damage_number.display_duration < 0.01 then
+	if damage_number.display_duration < 0.000001 then
 		return;
 	end
 
@@ -65,7 +67,7 @@ function this.new(damage, hit_position)
 	damage_number.current_position = hit_position;
 
 	damage_number.floating_distance = utils.math.random(cached_config.settings.floating_distance.min, cached_config.settings.floating_distance.max);
-	damage_number.floating_direction = Vector2f.new(0, -500);--utils.vec2.random(damage_number.floating_distance);
+	damage_number.floating_direction = utils.vec2.random(damage_number.floating_distance);
 
 	damage_number.floating_progress = 0;
 	damage_number.opacity_scale = 0;
@@ -79,11 +81,12 @@ end
 function this.update_progress(damage_number)
 	local elapsed_time = time.total_elapsed_script_seconds - damage_number.init_time;
 
-	if damage_number.display_duration > 0.001 then
-		damage_number.progress = elapsed_time / damage_number.display_duration;
-	else
+	if elapsed_time < damage_number.display_delay then
 		damage_number.progress = 0;
+		return;
 	end
+
+	damage_number.progress = (elapsed_time - damage_number.display_delay) / damage_number.display_duration;
 end
 
 function this.update_values_from_keyframes(damage_number)
@@ -124,10 +127,12 @@ function this.update_values_from_keyframes(damage_number)
 end
 
 function this.tick()
-	--xy = utils.table.tostring(this.list);
-
 	for index, damage_number in pairs(this.list) do
 		this.update_progress(damage_number);
+
+		if damage_number.progress == 0 then
+			goto continue;
+		end
 
 		if damage_number.progress > 1 then
 			this.list[index] = nil;
@@ -146,13 +151,6 @@ function this.tick()
 			y = hit_position_on_screen.y + damage_number.floating_direction.y * damage_number.floating_progress,
 		}
 
-		xy = utils.vec2.tostring(hit_position_on_screen);
-
-		--xy = utils.table.tostring(damage_number.keyframes.floating_movement) .. "\n";
-		--xy = xy .. utils.table.tostring(target_position) .. "\n";
-		--xy = xy .. utils.table.tostring(current_position) .. "\n";
-		--xy = xy .. tostring(damage_number.floating_progress) .. "\n";
-
 		drawing.draw_label(damage_number.label, damage_number.current_position, damage_number.opacity_scale, damage_number.text);
 		
 		::continue::
@@ -160,13 +158,17 @@ function this.tick()
 end
 
 function this.on_hit(damage_info, enemy_context)
-	local damage = damage_info:get_Damage();
+	if damage_info == nil then
+		return;
+	end
+
+	local damage = get_damage_method:call(damage_info);
 
 	if damage == nil or damage == 0 then
 		return;
 	end
 
-	local position = damage_info:get_Position();
+	local position = get_position_method:call(damage_info);
 
 	if position == nil then
 		return;

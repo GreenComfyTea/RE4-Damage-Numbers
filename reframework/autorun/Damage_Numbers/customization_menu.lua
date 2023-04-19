@@ -128,8 +128,12 @@ function this.draw()
 			cached_config.settings.use_d2d_if_available);
 		config_changed = config_changed or changed;
 
+		changed, cached_config.settings.display_delay = imgui.drag_float("Display Delay (sec)",
+			cached_config.settings.display_delay, 0.001, 0, 100, "%.3f");
+		config_changed = config_changed or changed;
+
 		changed, cached_config.settings.display_duration = imgui.drag_float("Display Duration (sec)",
-			cached_config.settings.display_duration, 0.1, 0, 100, "%.1f");
+			cached_config.settings.display_duration, 0.001, 0, 100, "%.3f");
 		config_changed = config_changed or changed;
 
 		imgui.new_line();
