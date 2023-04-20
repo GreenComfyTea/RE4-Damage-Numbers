@@ -2,14 +2,13 @@
 
 Mod for Resident Evil 4 Remake that draws Floating Damage Numbers. 
 
-![health_bars_2](https://user-images.githubusercontent.com/30152047/226180919-2ddaacc2-f8c7-4688-8ec0-1958da87f91a.png)
-
+![damage_numbers_2](https://user-images.githubusercontent.com/30152047/233308742-36664886-d310-4c1c-a0de-c4821dc6be5d.png)
 
 # Links
-* **[Nexus Mods](https://www.nexusmods.com/residentevil42023/mods/84)**
+* **[Nexus Mods](https://www.nexusmods.com/residentevil42023/mods/757)**
 
 # Requirements
-1. [REFramework](https://www.nexusmods.com/residentevil42023/mods/12) (v1.4.1 or above);
+1. [REFramework](https://www.nexusmods.com/residentevil42023/mods/12) (v1.460 or above);
 2. [REFramework Direct2D](https://www.nexusmods.com/residentevil42023/mods/83) (v0.4.0 or above).
 
 # How to install:
