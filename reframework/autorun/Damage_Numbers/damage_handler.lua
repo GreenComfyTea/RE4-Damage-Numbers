@@ -5,6 +5,9 @@ local utils;
 local time;
 local keyframe_handler;
 local drawing;
+local customization_menu;
+local player_handler;
+local gui_handler;
 
 local sdk = sdk;
 local tostring = tostring;
@@ -127,6 +130,34 @@ function this.update_values_from_keyframes(damage_number)
 end
 
 function this.tick()
+	local cached_config = config.current_config.settings;
+
+	if gui_handler.game.current_active_input_level > 0 then
+		return;
+	end
+
+	if not cached_config.render_during_cutscenes and gui_handler.game.is_cutscene_playing then
+		return;
+	end
+
+	if not cached_config.render_when_hud_is_off and gui_handler.game.is_hud_off then
+		return;
+	end
+
+	if not player_handler.player.is_aiming then
+		if not cached_config.render_when_normal then
+			return;
+		end
+	elseif not player_handler.player.is_using_scope then
+		if not cached_config.render_when_aiming then
+			return;
+		end
+	else
+		if not cached_config.render_when_using_scope then
+			return;
+		end
+	end
+
 	for index, damage_number in pairs(this.list) do
 		this.update_progress(damage_number);
 
@@ -159,18 +190,25 @@ end
 
 function this.on_hit(damage_info, enemy_context)
 	if damage_info == nil then
+		customization_menu.status = "[damage_handler.on_hit] No Damage Info";
 		return;
 	end
 
 	local damage = get_damage_method:call(damage_info);
 
-	if damage == nil or damage == 0 then
+	if damage == nil then
+		customization_menu.status = "[damage_handler.on_hit] No Damage";
+		return;
+	end
+
+	if damage == 0 then
 		return;
 	end
 
 	local position = get_position_method:call(damage_info);
 
 	if position == nil then
+		customization_menu.status = "[damage_handler.on_hit] No Position";
 		return;
 	end
 
@@ -183,6 +221,9 @@ function this.init_module()
 	time = require("Damage_Numbers.time");
 	keyframe_handler = require("Damage_Numbers.keyframe_handler");
 	drawing = require("Damage_Numbers.drawing");
+	customization_menu = require("Damage_Numbers.customization_menu");
+	player_handler = require("Damage_Numbers.player_handler");
+	gui_handler = require("Damage_Numbers.gui_handler");
 
 	sdk.hook(notify_hit_damage_method, function(args)
 

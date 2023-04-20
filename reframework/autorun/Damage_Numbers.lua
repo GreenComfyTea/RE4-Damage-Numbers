@@ -43,8 +43,10 @@ local customization_menu = require("Damage_Numbers.customization_menu");
 
 local keyframe_handler = require("Damage_Numbers.keyframe_handler");
 local damage_handler = require("Damage_Numbers.damage_handler");
+local gui_handler = require("Damage_Numbers.gui_handler");
+local player_handler = require("Damage_Numbers.player_handler");
 
-if debug == nil and debug.enabled then
+if debug ~= nil and debug.enabled then
 	xy = "";
 end
 
@@ -64,6 +66,9 @@ customization_menu.init_module();
 keyframe_handler.init_module();
 damage_handler.init_module();
 
+gui_handler.init_module();
+player_handler.init_module();
+
 log.info("[Damage Numbers] Loaded.");
 -- #endregion
 ------------------------INIT MODULES-------------------------
@@ -78,6 +83,9 @@ re.on_pre_application_entry("UpdateBehavior", function()
 	time.update_script_time();
 	singletons.init();
 	screen.update_window_size();
+
+	gui_handler.update();
+	player_handler.update();
 end);
 
 local function main_loop()
@@ -143,7 +151,7 @@ end);
 -- #endregion
 ----------------------------D2D------------------------------
 
-if debug == nil and debug.enabled then
+if debug ~= nil and debug.enabled then
 	if d2d ~= nil then
 		d2d.register(function()
 		end, function()

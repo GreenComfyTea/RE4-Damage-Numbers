@@ -52,6 +52,13 @@ function this.init()
 		settings = {
 			use_d2d_if_available = true,
 
+			render_during_cutscenes = false,
+			render_when_hud_is_off = false,
+
+			render_when_normal = true,
+			render_when_aiming = true,
+			render_when_using_scope = true,
+
 			display_delay = 0.022222,
 			display_duration = 0.988888,
 

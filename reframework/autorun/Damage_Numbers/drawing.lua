@@ -139,7 +139,6 @@ function this.draw_label(label, position, opacity_scale, ...)
 	end
 end
 
-
 function this.draw_bar(bar, position, opacity_scale, percentage)
 	if bar == nil or not bar.visibility then
 		return;

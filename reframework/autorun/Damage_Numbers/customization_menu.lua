@@ -128,6 +128,36 @@ function this.draw()
 			cached_config.settings.use_d2d_if_available);
 		config_changed = config_changed or changed;
 
+		imgui.new_line();
+		imgui.begin_rect()
+
+		changed, cached_config.settings.render_during_cutscenes = imgui.checkbox("Render during Cutscenes",
+			cached_config.settings.render_during_cutscenes);
+		config_changed = config_changed or changed;
+
+		changed, cached_config.settings.render_when_hud_is_off = imgui.checkbox("Render when HUD is Disabled by Game",
+			cached_config.settings.render_when_hud_is_off);
+		config_changed = config_changed or changed;
+		
+		imgui.end_rect(5);
+		imgui.new_line();
+		imgui.begin_rect()
+		
+		changed, cached_config.settings.render_when_normal = imgui.checkbox("Render when Normal",
+			cached_config.settings.render_when_normal);
+		config_changed = config_changed or changed;
+
+		changed, cached_config.settings.render_when_aiming = imgui.checkbox("Render when Aiming",
+			cached_config.settings.render_when_aiming);
+		config_changed = config_changed or changed;
+
+		changed, cached_config.settings.render_when_using_scope = imgui.checkbox("Render when using Scope",
+			cached_config.settings.render_when_using_scope);
+		config_changed = config_changed or changed;
+
+		imgui.end_rect(5);
+		imgui.new_line();
+
 		changed, cached_config.settings.display_delay = imgui.drag_float("Display Delay (sec)",
 			cached_config.settings.display_delay, 0.001, 0, 100, "%.3f");
 		config_changed = config_changed or changed;
