@@ -104,9 +104,9 @@ function this.get_game_window_size()
 end
 
 function this.init_module()
-	config = require("Health_Bars.config");
-	singletons = require("Health_Bars.singletons");
-	utils = require("Health_Bars.utils");
+	config = require("Damage_Numbers.config");
+	singletons = require("Damage_Numbers.singletons");
+	utils = require("Damage_Numbers.utils");
 end
 
 return this;
