@@ -28,8 +28,20 @@ local draw = draw;
 local Vector2f = Vector2f;
 local reframework = reframework;
 local os = os;
+local ValueType = ValueType;
+local package = package;
 
-local debug = require("Damage_Numbers.debug");
+local debug_name = "Damage_Numbers.debug";
+local debug = nil;
+for _, searcher in ipairs(package.searchers or package.loaders) do
+	local loader = searcher(debug_name);
+
+	if type(loader) == "function" then
+		package.preload[debug_name] = loader;
+		debug = require(debug_name);
+	end
+end
+
 local time = require("Damage_Numbers.time");
 local drawing = require("Damage_Numbers.drawing");
 local utils = require("Damage_Numbers.utils");
