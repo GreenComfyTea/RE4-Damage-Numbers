@@ -82,6 +82,7 @@ function this.draw()
 
 	local changed = false;
 	local config_changed = false;
+	local index = 1;
 
 	if imgui.button("Reset Config") then
 		config.reset();
@@ -90,8 +91,6 @@ function this.draw()
 
 	imgui.same_line();
 	imgui.text("Status: " .. tostring(this.status));
-
-	local index = 1;
 
 	changed, cached_config.enabled = imgui.checkbox("Enabled", cached_config.enabled);
 	config_changed = config_changed or changed;
