@@ -19,6 +19,15 @@ Mod for Resident Evil 4 Remake that draws Floating Damage Numbers.
     * Nightly builds are available in [this repo](https://github.com/GreenComfyTea/RE4-Health-Bars) and can contain broken functionality, debugging info on screen, bugs and might require the latest [nightly build](https://github.com/praydog/REFramework-nightly/releases) of [REFramework](https://www.nexusmods.com/residentevil42023/mods/12). Use with caution!
 4. Extract the mod from the archive and place it in Resident Evil 4 folder. Final path should look like this: `/RESIDENT EVIL 4  BIOHAZARD RE4/reframework/autorun/Damage_Numbers.lua`
 
+# How to compile?
+**Prerequisites:**
++ [lua-amalg](https://github.com/siffiejoe/lua-amalg)    
++ [Lua 5.4+](https://www.lua.org/)  
+
+**Example compilation command (replace the paths to `lua54.exe`, `amalg.lua` and `Damage_Numbers.lua` to yours):**
+
+`"D:\Programs\Lua Amalg\lua54.exe" "D:\Programs\Lua Amalg\amalg.lua" -o Damage_Numbers_precompiled.lua -d -s "E:\GitHub\RE4-Damage-Numbers\reframework\autorun\Damage_Numbers.lua" Damage_Numbers.config Damage_Numbers.customization_menu Damage_Numbers.drawing Damage_Numbers.keyframe_customization Damage_Numbers.keyframe_handler Damage_Numbers.label_customization  Damage_Numbers.screen Damage_Numbers.singletons Damage_Numbers.time Damage_Numbers.utils Damage_Numbers.player_handler Damage_Numbers.gui_handler Damage_Numbers.damage_handler`
+
 # Credits
 **GreenComfyTea** - creator of the mod and it's main contributor.
   
