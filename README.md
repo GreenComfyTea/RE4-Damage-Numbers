@@ -1,6 +1,6 @@
 <p align="center">
 	<h2 align="center"><b>"Damage Numbers" Mod for Resident Evil 4 Remake</b></h2>
-	<p align="center">Mod that draws Floating Damage Numbers.</p>
+	<p align="center">Mod that draws floating damage numbers.</p>
 </p>
 
 <p align="center">
