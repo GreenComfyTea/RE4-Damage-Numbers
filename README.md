@@ -44,28 +44,6 @@
 	</a>
 	<br>
 	<br>
-	<a href="">
-		<img alt="Repo Size" src="https://custom-icon-badges.demolab.com/github/repo-size/greencomfytea/re4-damage-numbers?logo=database" />
-	</a>
-	<a href="">
-		<img alt="Goto Counter" src="https://custom-icon-badges.demolab.com/github/search/greencomfytea/re4-damage-numbers/goto?logo=git-compare" />
-	</a>
-	<a href="https://github.com/sponsors/greencomfytea">
-		<img alt="Sponsors" src="https://custom-icon-badges.demolab.com/github/sponsors/greencomfytea?logo=heart" />
-	</a>
-	<a href="https://github.com/GreenComfyTea/re4-damage-numbers/watchers">
-		<img alt="Watchers" src="https://custom-icon-badges.demolab.com/github/watchers/greencomfytea/re4-damage-numbers?logo=eye" />
-	</a>
-	<a href="https://github.com/greencomfytea/re4-damage-numbers/forks">
-		<img alt="Forks" src="https://custom-icon-badges.demolab.com/github/forks/greencomfytea/re4-damage-numbers?logo=repo-forked" />
-	</a>
-	<a href="https://github.com/greencomfytea/re4-damage-numbers/stargazers">
-		<img alt="Stars" src="https://custom-icon-badges.demolab.com/github/stars/greencomfytea/re4-damage-numbers?logo=star" />
-	</a>
-	<a href="https://github.com/greencomfytea/re4-damage-numbers/graphs/traffic">
-		<img alt="Hits" src="https://custom-icon-badges.demolab.com/endpoint?url=https://hits.dwyl.com/greencomfytea/re4-damage-numbers.json?color=blue&logo=eye" />
-	</a>
-	<br>
 	<a href="https://github.com/greencomfytea/re4-damage-numbers/commits/main">
 		<img alt="Last Commit" src="https://custom-icon-badges.demolab.com/github/last-commit/greencomfytea/re4-damage-numbers?logo=git-commit" />
 	</a>
@@ -84,6 +62,33 @@
 	</a>
 	<a href="https://github.com/greencomfytea/re4-damage-numbers/graphs/commit-activity">
 		<img alt="Commit Activity (Week)" src="https://custom-icon-badges.demolab.com/github/commit-activity/w/greencomfytea/re4-damage-numbers?logo=pulse" />
+	</a>
+	<br>
+	<br>
+	<a href="">
+		<img alt="Repo Size" src="https://custom-icon-badges.demolab.com/github/repo-size/greencomfytea/re4-damage-numbers?logo=database" />
+	</a>
+	<a href="">
+		<img alt="Line Count" src="https://sloc.xyz/github/greencomfytea/re4-damage-numbers" />
+	</a>
+	<a href="">
+		<img alt="Goto Counter" src="https://custom-icon-badges.demolab.com/github/search/greencomfytea/re4-damage-numbers/goto?logo=git-compare" />
+	</a>
+	<br>
+	<a href="https://github.com/sponsors/greencomfytea">
+		<img alt="Sponsors" src="https://custom-icon-badges.demolab.com/github/sponsors/greencomfytea?logo=heart" />
+	</a>
+	<a href="https://github.com/GreenComfyTea/re4-damage-numbers/watchers">
+		<img alt="Watchers" src="https://custom-icon-badges.demolab.com/github/watchers/greencomfytea/re4-damage-numbers?logo=eye" />
+	</a>
+	<a href="https://github.com/greencomfytea/re4-damage-numbers/forks">
+		<img alt="Forks" src="https://custom-icon-badges.demolab.com/github/forks/greencomfytea/re4-damage-numbers?logo=repo-forked" />
+	</a>
+	<a href="https://github.com/greencomfytea/re4-damage-numbers/stargazers">
+		<img alt="Stars" src="https://custom-icon-badges.demolab.com/github/stars/greencomfytea/re4-damage-numbers?logo=star" />
+	</a>
+	<a href="https://github.com/greencomfytea/re4-damage-numbers/graphs/traffic">
+		<img alt="Hits" src="https://custom-icon-badges.demolab.com/endpoint?url=https://hits.dwyl.com/greencomfytea/re4-damage-numbers.json?color=blue&logo=eye" />
 	</a>
 	<br>
 	<br>
